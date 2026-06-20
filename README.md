@@ -66,14 +66,28 @@ homebridge.
    [the instructions](https://github.com/homebridge/homebridge/wiki).
 2. Make sure your Homebridge host is running Node.js 22.12 or newer for
    Homebridge 2.x compatibility.
-3. Install or update this plugin directly from GitHub:
+3. Install or update this plugin directly from GitHub.
+
+   For Homebridge UI / Docker setups, install into the `/homebridge`
+   workspace because that is where Homebridge loads plugins from:
+   ```sh
+   cd /homebridge
+   npm install git+https://github.com/lioramsalem/homebridge-shelly-v2.git
+   hb-service restart
+   ```
+
+   For non-Docker global Homebridge service setups, install globally:
    ```sh
    sudo npm install -g git+https://github.com/lioramsalem/homebridge-shelly-v2.git
-   ```
-4. Restart Homebridge:
-   ```sh
    sudo hb-service restart
    ```
+4. Verify that Homebridge is loading this fork:
+   ```sh
+   node -p "require('/homebridge/node_modules/homebridge-shelly/package.json').version"
+   grep -n "BatteryService" /homebridge/node_modules/homebridge-shelly/abilities/battery.js
+   ```
+   The version should be `0.19.2` or newer, and the grep output should show
+   the v2 compatibility fallback `Service.Battery || Service.BatteryService`.
 5. If this is a new installation, add the configuration to your homebridge
    config.json.
 
