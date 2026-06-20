@@ -1,6 +1,12 @@
 <a href="https://github.com/alexryd/homebridge-shelly"><img src="homebridge-shelly.png" height="120"></a>
 
 # homebridge-shelly
+This is a fork of the original
+[homebridge-shelly](https://github.com/alexryd/homebridge-shelly) plugin that
+tries to keep the plugin working with Homebridge 2.x and newer.
+The Homebridge 2.x adoption changes in this fork were fully modified by AI,
+with no human in the loop for the code changes.
+
 [![npm-version](https://badgen.net/npm/v/homebridge-shelly)](https://www.npmjs.com/package/homebridge-shelly)
 [![npm-total-downloads](https://badgen.net/npm/dt/homebridge-shelly)](https://www.npmjs.com/package/homebridge-shelly)
 [![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
