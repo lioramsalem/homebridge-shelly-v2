@@ -1,6 +1,6 @@
 {
   "name": "homebridge-shelly",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "description": "Shelly plugin for Homebridge",
   "main": "index.js",
   "bin": "bin/homebridge-shelly",
@@ -26,7 +26,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexryd/homebridge-shelly.git"
+    "url": "https://github.com/lioramsalem/homebridge-shelly-v2.git"
   },
   "funding": {
     "type": "kofi",

@@ -60,7 +60,7 @@ homebridge.
    [the instructions](https://github.com/homebridge/homebridge/wiki).
 2. Make sure your Homebridge host is running Node.js 22.12 or newer for
    Homebridge 2.x compatibility.
-3. Install this fork directly from GitHub:
+3. Install or update this plugin directly from GitHub:
    ```sh
    sudo npm install -g git+https://github.com/lioramsalem/homebridge-shelly-v2.git
    ```
@@ -68,7 +68,19 @@ homebridge.
    ```sh
    sudo hb-service restart
    ```
-5. Add the configuration to your homebridge config.json.
+5. If this is a new installation, add the configuration to your homebridge
+   config.json.
+
+### Updating from the original plugin
+This fork keeps the same npm package name (`homebridge-shelly`), Homebridge
+plugin identifier (`homebridge-shelly`), and platform name (`Shelly`) as the
+original plugin. Installing it with the command above updates/replaces the
+original plugin in-place, so existing `"platform": "Shelly"` configuration and
+cached accessories continue to be used.
+
+Before updating, back up your Homebridge config and persistent storage from the
+Homebridge UI or from disk. You should not need to re-add Shelly devices or
+rewrite your existing plugin configuration.
 
 ## Configuration
 In most cases, simply adding this plugin to the homebridge config.json will be
