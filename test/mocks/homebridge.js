@@ -191,16 +191,6 @@ class TargetPosition extends Characteristic {
 }
 Characteristic.TargetPosition = TargetPosition
 
-Characteristic.Formats = {
-  FLOAT: 'FLOAT',
-}
-
-Characteristic.Perms = {
-  NOTIFY: 'NOTIFY',
-  READ: 'READ',
-  WRITE: 'WRITE',
-}
-
 class PlatformAccessory extends EventEmitter {
   constructor(displayName, UUID) {
     super()
@@ -273,7 +263,7 @@ class AccessoryInformation extends Service {
 }
 Service.AccessoryInformation = AccessoryInformation
 
-class BatteryService extends Service {
+class Battery extends Service {
   constructor() {
     super()
 
@@ -282,7 +272,7 @@ class BatteryService extends Service {
     this.addCharacteristic(StatusLowBattery)
   }
 }
-Service.BatteryService = BatteryService
+Service.Battery = Battery
 
 class HumiditySensor extends Service {
   constructor() {
@@ -370,6 +360,14 @@ class Homebridge extends EventEmitter {
     this.hap = {
       Accessory,
       Characteristic,
+      Formats: {
+        FLOAT: 'FLOAT',
+      },
+      Perms: {
+        NOTIFY: 'NOTIFY',
+        READ: 'READ',
+        WRITE: 'WRITE',
+      },
       Service,
       uuid: {
         generate: () => {},

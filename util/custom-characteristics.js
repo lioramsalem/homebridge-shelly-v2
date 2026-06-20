@@ -2,8 +2,8 @@
 module.exports = homebridge => {
   const Characteristic = homebridge.hap.Characteristic
 
-  const Formats = Characteristic.Formats
-  const Perms = Characteristic.Perms
+  const Formats = homebridge.hap.Formats || Characteristic.Formats
+  const Perms = homebridge.hap.Perms || Characteristic.Perms
 
   class ConsumptionCharacteristic extends Characteristic {
     constructor() {

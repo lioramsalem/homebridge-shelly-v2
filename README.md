@@ -58,8 +58,17 @@ homebridge.
 ## Installation
 1. Install Homebridge by following
    [the instructions](https://github.com/homebridge/homebridge/wiki).
-2. Install this plugin using [Homebridge Config UI X](https://github.com/oznu/homebridge-config-ui-x), or by running `npm install -g homebridge-shelly`.
-3. Add the configuration to your homebridge config.json.
+2. Make sure your Homebridge host is running Node.js 22.12 or newer for
+   Homebridge 2.x compatibility.
+3. Install this fork directly from GitHub:
+   ```sh
+   sudo npm install -g git+https://github.com/lioramsalem/homebridge-shelly-v2.git
+   ```
+4. Restart Homebridge:
+   ```sh
+   sudo hb-service restart
+   ```
+5. Add the configuration to your homebridge config.json.
 
 ## Configuration
 In most cases, simply adding this plugin to the homebridge config.json will be
