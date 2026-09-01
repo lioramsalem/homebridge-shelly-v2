@@ -1,4 +1,5 @@
 const { handleFailedRequest } = require('../util/error-handlers')
+const { sanitizeName } = require('../util/sanitize-name')
 
 module.exports = homebridge => {
   const Categories = homebridge.hap.Categories
@@ -39,12 +40,15 @@ module.exports = homebridge => {
      * device or the `defaultName` property.
      */
     get name() {
+      let name
       if (this.config.name) {
-        return this.config.name
+        name = this.config.name
       } else if (this.device.name) {
-        return this.device.name
+        name = this.device.name
+      } else {
+        name = this.defaultName
       }
-      return this.defaultName
+      return sanitizeName(name)
     }
 
     /**
