@@ -1,7 +1,8 @@
 const EventEmitter = require('events')
 
 class Accessory {}
-Accessory.Categories = {
+
+const Categories = {
   LIGHTBULB: 'LIGHTBULB',
   SENSOR: 'SENSOR',
   SWITCH: 'SWITCH',
@@ -359,6 +360,7 @@ class Homebridge extends EventEmitter {
 
     this.hap = {
       Accessory,
+      Categories,
       Characteristic,
       Formats: {
         FLOAT: 'FLOAT',
