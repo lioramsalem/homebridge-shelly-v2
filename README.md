@@ -86,7 +86,7 @@ homebridge.
    node -p "require('/homebridge/node_modules/homebridge-shelly/package.json').version"
    grep -n "BatteryService" /homebridge/node_modules/homebridge-shelly/abilities/battery.js
    ```
-   The version should be `0.19.2` or newer, and the grep output should show
+   The version should be `0.20.0` or newer, and the grep output should show
    the v2 compatibility fallback `Service.Battery || Service.BatteryService`.
 5. If this is a new installation, add the configuration to your homebridge
    config.json.
