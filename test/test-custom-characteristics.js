@@ -5,7 +5,9 @@ const Homebridge = require('./mocks/homebridge')
 const homebridge = new Homebridge()
 
 const {
-  ConsumptionCharacteristic
+  ConsumptionCharacteristic,
+  ElectricCurrentCharacteristic,
+  VoltageCharacteristic,
 } = require('../util/custom-characteristics')(homebridge)
 
 describe('ConsumptionCharacteristic', function() {
@@ -16,11 +18,21 @@ describe('ConsumptionCharacteristic', function() {
       char.UUID.should.be.ok()
     })
 
-    it('should set its properties', function() {
-      const char = new ConsumptionCharacteristic()
-      char.props.should.be.ok()
-      char.props.format.should.be.ok()
-      char.props.perms.should.be.ok()
+    it('should use paired-read and notify permissions', function() {
+      const types = [
+        ConsumptionCharacteristic,
+        ElectricCurrentCharacteristic,
+        VoltageCharacteristic,
+      ]
+
+      for (const Type of types) {
+        const char = new Type()
+        char.props.format.should.be.ok()
+        char.props.perms.should.eql([
+          homebridge.hap.Perms.PAIRED_READ,
+          homebridge.hap.Perms.NOTIFY,
+        ])
+      }
     })
   })
 })

@@ -367,6 +367,7 @@ class Homebridge extends EventEmitter {
       },
       Perms: {
         NOTIFY: 'NOTIFY',
+        PAIRED_READ: 'PAIRED_READ',
         READ: 'READ',
         WRITE: 'WRITE',
       },

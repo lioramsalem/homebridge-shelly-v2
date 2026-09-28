@@ -66,6 +66,24 @@ module.exports = homebridge => {
     _setupEventHandlers() {
       super._setupEventHandlers()
 
+      const { PAIRED_READ, NOTIFY } = homebridge.hap.Perms
+      const types = [
+        ConsumptionCharacteristic,
+        ElectricCurrentCharacteristic,
+        VoltageCharacteristic,
+      ]
+      const characteristics = Array.from(
+        this.service.characteristics.values()
+      )
+      for (const Type of types) {
+        const characteristic = characteristics.find(
+          c => c.UUID === Type.UUID
+        )
+        if (characteristic) {
+          characteristic.setProps({ perms: [PAIRED_READ, NOTIFY] })
+        }
+      }
+
       this.device.on(
         'change:' + this._consumptionProperty,
         this._consumptionChangeHandler,
